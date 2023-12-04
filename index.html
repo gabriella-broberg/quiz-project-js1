@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz</title>
+</head>
+<body>
+
+
+    <div id="quiz-container">
+        <!-- Frågeformulär -->
+        <form id="quiz-form">
+            <!-- Fråga 1 -->
+            <div class="question">
+                <p>1. Sant eller falskt: HTML är ett programmeringsspråk.</p>
+                <label>
+                    <input type="radio" name="q1" value="true"> Sant
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="false"> Falskt
+                </label>
+            </div>
+
+            
+
+            <!-- Knapp för att visa resultat -->
+            <button type="button" onclick="showResult()">Visa resultat</button>
+        </form>
+
+        <!-- Resultat -->
+        <div id="result-container" class="hidden">
+            <h2>Resultat</h2>
+            <p id="score"></p>
+            <ul id="feedback-list"></ul>
+        </div>
+    </div>
+
+
+
+   
+</body>
+</html>
