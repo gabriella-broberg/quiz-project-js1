@@ -3,42 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 
-    <title>Quiz</title>
+    <title>TEST Quiz Applikation</title>
 </head>
 <body>
-
-
-    <div id="quiz-container">
+    <div id="questions-container">
+        <h1>Quiz</h1>
         <!-- Frågeformulär -->
         <form id="quiz-form">
-            <!-- Fråga 1 -->
-            <div class="question">
-                <p>1. Sant eller falskt: HTML är ett programmeringsspråk.</p>
-                <label>
-                    <input type="radio" name="q1" value="true"> Sant
-                </label>
-                <label>
-                    <input type="radio" name="q1" value="false"> Falskt
-                </label>
-            </div>
+            <!-- Frågor kommer att läggas till här dynamiskt från JavaScript -->
 
-            
-
-            <!-- Knapp för att visa resultat -->
-            <button type="button" onclick="showResult()">Visa resultat</button>
         </form>
 
-        <!-- Resultat -->
-        <div id="result-container" class="hidden">
+        <!-- Knapp för att visa resultat -->
+        <button id="next-button" type="button">Nästa fråga</button>
+
+        <!-- Resultatssektion -->
+        <div id="result-container" class="result-hidden">
             <h2>Resultat</h2>
             <p id="score"></p>
             <ul id="feedback-list"></ul>
         </div>
     </div>
 
-
-
-   
+    <script src="quiz.js"></script>
 </body>
 </html>
