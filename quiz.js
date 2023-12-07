@@ -65,7 +65,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let userAnswers = [];
-let totalCorrectAnswers = 0;
+let score = 0;
 
 
 
@@ -167,7 +167,7 @@ nextButton.addEventListener("click", nextQuestion);
 function showResult() {
     console.log("Visar resultat");
     userAnswers = [];
-    totalCorrectAnswers = 0;
+    score = 0;
     result = [];
 
     // Hämta användarens svar
@@ -180,7 +180,7 @@ function showResult() {
 
             if (currentQuestion.type === "trueFalse" || currentQuestion.type === "multipleChoice") {
                 if (answer.value === currentQuestion.answer) {
-                    totalCorrectAnswers++;
+                    score++;
                     result.push(true);
                 } else {
                     result.push(false);
@@ -197,7 +197,7 @@ function showResult() {
                     );
 
                 if (correct) {
-                    totalCorrectAnswers++;
+                    score++;
                     result.push(true);
                 } else {
                     result.push(false);
@@ -209,20 +209,20 @@ function showResult() {
     }
 
     // Kontrollera om användaren har besvarat några frågor
-    if (userAnswers.length === 0) {
-        alert("Du måste besvara minst en fråga innan du kan se resultatet.");
-        return;
-    }
+   // if (userAnswers.length === 0) {
+        //alert("Du måste besvara minst en fråga innan du kan se resultatet.");
+       // return;
+   // }
 
     // Visa resultat
-    const scorePercentage = (totalCorrectAnswers / questions.length) * 100;
+    const scorePercentage = (score / questions.length) * 100;
     const resultContainer = document.getElementById("result-container");
     const scoreElement = document.getElementById("score");
     const feedbackList = document.getElementById("feedback-list");
 
     resultContainer.classList.remove("hidden");
     
-    scoreElement.textContent = `Du fick ${totalCorrectAnswers.toFixed(1)} av ${
+    scoreElement.textContent = `Du fick ${score.toFixed(1)} av ${
         questions.length
     } poäng.`;
 
