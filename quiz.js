@@ -161,8 +161,7 @@ function nextQuestion() {
 nextButton.addEventListener("click", nextQuestion);
 
 
-
-// ... tidigare kod ...
+//Visar resultat
 
 function showResult() {
     console.log("Visar resultat");
@@ -191,9 +190,9 @@ function showResult() {
                 ).map((input) => input.value);
 
                 const correct =
-                    userSelected.length === currentQuestion.correctAnswers.length &&
+                    userSelected.length === currentQuestion.answer.length &&
                     userSelected.every((value) =>
-                        currentQuestion.correctAnswers.includes(value)
+                        currentQuestion.answer.includes(value)
                     );
 
                 if (correct) {
@@ -209,10 +208,10 @@ function showResult() {
     }
 
     // Kontrollera om användaren har besvarat några frågor
-   // if (userAnswers.length === 0) {
-        //alert("Du måste besvara minst en fråga innan du kan se resultatet.");
-       // return;
-   // }
+    if (userAnswers.length === 0) {
+        alert("Du måste besvara minst en fråga innan du kan se resultatet.");
+        return;
+    }
 
     // Visa resultat
     const scorePercentage = (score / questions.length) * 100;
@@ -221,7 +220,7 @@ function showResult() {
     const feedbackList = document.getElementById("feedback-list");
 
     resultContainer.classList.remove("hidden");
-    
+
     scoreElement.textContent = `Du fick ${score.toFixed(1)} av ${
         questions.length
     } poäng.`;
@@ -241,8 +240,8 @@ function showResult() {
     // Visa vilka frågor som är rätt eller fel
     for (let i = 0; i < questions.length; i++) {
         const listItem = document.createElement("li");
-        const correctAnswerText = Array.isArray(questions[i].correctAnswers)
-            ? ` Rätta svar: ${questions[i].correctAnswers.join(", ")}`
+        const correctAnswerText = Array.isArray(questions[i].answer)
+            ? ` Rätta svar: ${questions[i].answer.join(", ")}`
             : ` Rätt svar: ${questions[i].answer}`;
         listItem.textContent = `Fråga ${i + 1}: ${
             result[i] === true ? "Rätt" : "Fel"
@@ -251,4 +250,3 @@ function showResult() {
         feedbackList.appendChild(listItem);
     }
 }
-
